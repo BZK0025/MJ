@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8" />
+  <title>E-Mongolia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    /* Ямар ч нэмэлт зайгүй үндсэн тохиргоо */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: #111;
+      color: #fff;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, Helvetica, sans-serif;
+      overflow-x: hidden; /* хэвтээ скроллыг хаана */
+    }
+
+    /* Контентын давхарга — ямар ч нэмэлт зайгүй */
+    .content {
+      position: relative;
+      z-index: 1; /* frame-ээс доор */
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Зургууд дэлгэцийн өргөнийг дагана (viewport width = 100vw) */
+    img {
+      display: block;      /* inline gap арилгана */
+      margin: 0;
+      padding: 0;
+      width: 100vw;        /* дэлгэцийн өргөнд тааруулна */
+      height: auto;        /* харьцааг хадгална */
+      /* Хэрвээ өндөр нь viewport-оос их байвал босоо скролл автоматаар үүснэ */
+    }
+
+    /* Хөдөлгөөнгүй frame давхарга */
+    .frame {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0; /* бүх дэлгэцийг хамарсан давхарга */
+      z-index: 10;
+      pointer-events: none;  /* доорх контент дээрх үйлдлийг зөвшөөрнө */
+      display: grid;
+      place-items: center;   /* frame-ийг голд байрлуулна */
+    }
+
+    /* Frame зураг — дэлгэцийн өргөнийг дагана */
+    .frame img {
+      width: 100vw;  /* дэлгэцийн өргөнийг 100% */
+      height: auto;  /* харьцаа хадгална */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Хөдөлгөөнгүй frame (freeze) -->
+  <div class="frame" aria-hidden="true">
+   <img src="frame.png" alt="">
+  </div>
+
+  <!-- Скролл хийдэг урт зураг -->
+  <main class="content">
+    <img src="ok.png" alt="">
+   
+  </main>
+
+</body>
