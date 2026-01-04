@@ -1,12 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="mn">
 <head>
   <meta charset="UTF-8" />
   <title>E-Mongolia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <style>
-    /* Үндсэн тохиргоо */
     html, body {
       height: 100%;
       margin: 0;
@@ -14,56 +13,54 @@
       background: #111;
       color: #fff;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, Helvetica, sans-serif;
-      overflow-x: hidden; /* хэвтээ скроллыг хаана */
+      overflow-x: hidden; /* хэвтээ скролл хаана */
     }
 
-    /* Контент (урт зураг) — эх доошоо бүрэн гүйцэд скроллогдоно */
     .content {
       position: relative;
-      z-index: 1;           /* frame-ээс доор */
+      z-index: 1;
       margin: 0;
       padding: 0;
     }
 
-    /* Урт зураг дэлгэцийн өргөнийг дагана, урт нь харьцаагаараа автоматаар */
+    /* ok.png – дэлгэцийн өргөнийг дагана */
     .scroll-bg {
       display: block;
-      width: 100vw;         /* дэлгэцийн өргөнд тааруулна */
-      height: auto;         /* харьцааг хадгална → тайралтгүй, доошоо бүрэн үзэгдэнэ */
+      width: 100vw;   /* дэлгэцийн өргөн */
+      height: auto;   /* харьцааг хадгална */
+      margin: 0;
+      padding: 0;
     }
 
-    /* Frame — дэлгэцийн хэмжээтэй яг тэнцүү, дээр нь тогтмол байрлана */
+    /* Frame – дэлгэцтэй тэнцүү */
     .frame {
-      position: fixed;      /* freeze */
-      top: 0; left: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100vw;
-      height: 100vh;        /* viewport-ын өндөртэй тэнцүү */
+      height: 100vh;
       z-index: 10;
-      pointer-events: none; /* доорх контент дээр scroll/click хэвийн */
+      pointer-events: none;
     }
 
-    /* Frame доторх зураг дэлгэцийн хэмжээнд тааруулж сунаж/агшина */
     .frame img {
       width: 100%;
       height: 100%;
-      object-fit: fill;     /* бүх талд дэлгэцийг бүрэн дүүргэнэ (сунаж болно) */
-      /* Хэрэв сунаж гажуудуулахыг хүсэхгүй бол:
-         object-fit:         object-fit: contain; background: transparent; 
-         — ингэвэл зураг гажихгүй, харин зах хэсэгт хоосон зай гарч магадгүй */
+      object-fit: fill;
       display: block;
     }
   </style>
 </head>
+
 <body>
 
-  <!-- Хөдөлгөөнгүй frame (дэлгэцийн хэмжээнд) -->
   <div class="frame" aria-hidden="true">
-   <img src="frame.png" alt="">
+    <img src="frame.png" alt="">
   </div>
 
-  <!-- Урт зураг (өргөн = 100vw, урт = харьцаагаараа → тайралтгүй) -->
   <main class="content">
-  <img src="ok.png" alt="">
+    <img src="ok.png" alt="" class="scroll-bg">
   </main>
 
 </body>
+</html>
